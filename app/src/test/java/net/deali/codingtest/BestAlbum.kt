@@ -14,7 +14,7 @@ class BestAlbum {
 
     class Music(val id: Int, val genre: String, val count: Int)
 
-    fun solution(genres: Array<String>, plays: IntArray): IntArray {
+    private fun solution(genres: Array<String>, plays: IntArray): IntArray {
         val musicList = arrayListOf<Music>()
         val genreTotalCountHashMap = HashMap<String, Int>()
         val ids = arrayListOf<Int>()
@@ -42,7 +42,7 @@ class BestAlbum {
         return ids.toIntArray()
     }
 
-    fun solution2(genres: Array<String>, plays: IntArray): IntArray {
+    private fun solution2(genres: Array<String>, plays: IntArray): IntArray {
         return genres.indices //0 ~ geners-1  IntRange 변환
             .groupBy { int ->
                 genres[int]

@@ -12,7 +12,7 @@ class FeatureDevelopTest {
         Assert.assertEquals(Arrays.toString(intArrayOf(2, 1)), Arrays.toString(solution(intArrayOf(93, 30, 55), intArrayOf(1, 30, 5))))
     }
 
-    fun solution(progresses: IntArray, speeds: IntArray): IntArray {
+    private fun solution(progresses: IntArray, speeds: IntArray): IntArray {
         val queue: LinkedList<Int> = LinkedList()
         val intArrayList = ArrayList<Int>()
         progresses.forEach {
@@ -20,10 +20,10 @@ class FeatureDevelopTest {
         }
 
         while (queue.size > 0) {
-            speeds.forEachIndexed { index, i ->
-                val realIndex = index - (speeds.size - queue.size)
-                if (realIndex >= 0) {
-                    queue[realIndex] = queue[realIndex] + i
+            speeds.forEachIndexed { index, speed ->
+                val queueIndex = index - (speeds.size - queue.size)
+                if (queueIndex >= 0) {
+                    queue[queueIndex] = queue[queueIndex] + speed
                 }
             }
             var n = 0
@@ -44,7 +44,7 @@ class FeatureDevelopTest {
         Assert.assertEquals(Arrays.toString(intArrayOf(2, 1)), Arrays.toString(solution2(intArrayOf(93, 30, 55), intArrayOf(1, 30, 5))))
     }
 
-    fun solution2(progresses: IntArray, speeds: IntArray): IntArray {
+    private fun solution2(progresses: IntArray, speeds: IntArray): IntArray {
         var answer = intArrayOf()
 
         var lastDay = 0
